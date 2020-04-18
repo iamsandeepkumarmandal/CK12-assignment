@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import '../variables/_variables.scss';
+@import '../common/_mixins.scss';
+
+.container { 
+    max-width: 1170px;
+    margin: 0 auto;
+    @media (max-width: $medium-device-min-width+px) {
+        padding: 0 10px;
+    }
+}
+
+body {
+    font-family: $body-font-family;
+    color: $body-font-color;
+    font-size: 1rem;
+    @media (max-width: $mobile-max-width+px) {
+        font-size: ($mobile-font-size/$base-font-size)+rem;
+    }
+    @media (max-width: $extra-small-mobile-devices+px) {
+        font-size: 12px;
+    }
+}
+.display-block {
+    display: block;
+}
+.display-inline-block {
+    display: inline-block;
+}
+.display-flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.flex-align-center {
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.flex-justify-space-between {
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.flex-direction-column-mobile {
+    @media (max-width: $mobile-max-width+px) {
+        flex-direction: column;
+    }
+}
+
+.flex-1 {
+    flex: 1;
+    -ms-flex: 1;
+}
+// define position classes here
+.position-relative {
+    position: relative;
+}
+.position-absolute {
+    position: absolute;
+}
+
+// text transform classes
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.heading-font {
+   font-size: (24/$base-font-size)+rem;
+   @media (max-width: $mobile-max-width+px) {
+       font-size: (20/$base-font-size)+rem;
+   }
+}

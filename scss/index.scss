@@ -1,0 +1,127 @@
+@import 'common/_normalize.scss';
+@import 'common/_base.scss';
+@import 'circle/circle.scss';
+
+.toc-wrapper {
+    box-shadow: rgb(187, 187, 187) 0px 1px 3px 0px;
+    margin-bottom: 10px;
+    position: relative;
+    .progress {
+        position: absolute;
+        left: 0;
+        height: 2px;
+        background-color: $teal-color;
+    }
+    &--header {
+        &.active {
+            background-color: $teal-color;
+            color: $white-color;
+            &~ .toc-wrapper--content {
+                // display: block;
+                padding: 10px 20px 20px;
+            }
+            svg {
+                @include transform(rotate(90deg));
+                stroke: $white-color;
+            }
+        }
+        &.disable {
+            pointer-events: none;
+            background-color: rgb(188, 188, 188);
+            opacity: 0.34;
+        }
+        padding: 5px 20px;
+        cursor: pointer;
+        @include transition(300ms);
+        &:hover {
+            background-color: $teal-color;
+            color: $white-color;
+            svg {
+                stroke: $white-color;
+            }
+        }
+        &> svg {
+            margin-right: 10px;
+            @include transform(rotate(0deg));
+            @include transition(300ms);
+        }
+        .toc-title {
+            max-width: calc(100% - 140px);
+            width: 100%;
+            font-weight: $medium-font-weight;
+            @media (max-width: $extra-small-mobile-devices+px) {
+                max-width: calc(100% - 128px);
+            }
+        }
+        .toc-count {
+            margin-right: 10px;
+            @media (max-width: $extra-small-mobile-devices+px) {
+                margin-right: 2px;
+            }
+        }
+        .completion-progress {
+            .complete-status {
+                margin-right: 10px;
+            }
+            text-align: right;
+        }
+        @media (max-width: $extra-small-mobile-devices+px) {
+            padding: 5px;
+        }
+    }
+    &--content {
+        // padding: 10px 20px 20px;
+        // display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        ul {
+            max-width: calc(100% - 100px);
+            margin: 0 auto;
+        }
+        li {
+            padding: 10px 0;
+            border-left: 2px solid #000;
+            &:first-child {
+                padding-top: 0;
+            }
+            &:last-child {
+                padding-bottom: 0;
+            }
+            .completion-icon {
+                height: 25px;
+                margin-left: -13px;
+                &.active {
+                    .fill-circle {
+                        fill: $teal-color;
+                        stroke: $teal-color;
+                    }
+                }
+            }
+            .chapter-name {
+                color: $teal-color;
+                font-weight: $medium-font-weight;
+            }
+        }
+    }
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(39, 149, 182, 0.75);
+    @include transition(300ms);
+    opacity: 0;
+    visibility: hidden;
+    svg {
+        margin: auto;
+        width: 100px;
+    }
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

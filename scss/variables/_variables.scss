@@ -1,0 +1,26 @@
+// define colours here
+$body-font-color: #000000;
+$white-color: #ffffff;
+$teal-color: rgb(0, 171, 164);
+
+// font-family
+$base-font-size: 16;
+$mobile-font-size: 14;
+$body-font-family: 'Roboto', sans-serif;
+
+// define the font-weights here
+$normal-font-weight: 400;
+$light-font-weight: 300;
+$medium-font-weight: 500;
+
+// define border radius
+$base-border-radius: 5px;
+
+// define break points
+$large-device-min-width: 1200;
+$medium-device-max-width: ($large-device-min-width - 0.02);
+$medium-device-min-width: 992;
+$tablet-max-width: ($medium-device-min-width - 0.02);
+$tablet-min-width: 768;
+$mobile-max-width: ($tablet-min-width - 0.02);
+$extra-small-mobile-devices: 439.80;
